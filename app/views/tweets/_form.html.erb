@@ -1,10 +1,10 @@
-<%= form_for(@blog, url:choose_new_or_edit) do |f| %>
-<% if @blog.errors.any? %>
+<%= form_for(@tweet, url:choose_new_or_edit) do |f| %>
+<% if @tweet.errors.any? %>
   <div id="error_explanation">
-    <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+    <h2><%= @tweet.errors.count %>件のエラーがあります。</h2>
 
     <ul>
-    <% @blog.errors.full_messages.each do |msg| %>
+    <% @tweet.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -19,4 +19,4 @@
 <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 <% end %>
 
-<%= link_to "tweet一覧画面にもどる", blogs_path %>
+<%= link_to "tweet一覧画面にもどる", tweets_path %>
