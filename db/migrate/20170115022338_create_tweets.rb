@@ -1,6 +1,10 @@
 class CreateTweets < ActiveRecord::Migration
   def change
     create_table :tweets do |t|
+       t.string :title
+      t.text :email
+      t.text :content
+     
 
       t.timestamps null: false
     end

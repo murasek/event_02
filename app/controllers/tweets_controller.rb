@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweets_params)
     if @tweet.save
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
-      redirect_to tweets_path, notice: "ブログを作成しました！"
+      redirect_to tweets_path, notice: "ツイートしました！"
     else
       # 入力フォームを再描画します。
       render 'new'
@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
   def destroy
     
     @tweet.destroy
-    redirect_to tweets_path, notice: "ブログを削除しました！"
+    redirect_to tweets_path, notice: "ツイートを削除しました！"
   end
   
   def confirm
@@ -52,9 +52,9 @@ class TweetsController < ApplicationController
   
    private
     def tweets_params
-      params.require(:tweet).permit(:title, :content)
+      params.require(:tweet).permit(:content)
     end
-    def set_blog
+    def set_tweet
       @tweet = Tweet.find(params[:id])
     end
 end 
