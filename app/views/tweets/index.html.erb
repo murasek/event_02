@@ -14,7 +14,7 @@
     <h1>あなたのツイート</h1>
       <% @tweets.each do |tweet| %>
        <div class="row">
-        <h4><strong><%= tweet.title %></strong></h4>
+        
          <p><%= tweet.content %></p>
           <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-success' %>
           <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
