@@ -2,27 +2,34 @@
 <div class="container">
 
 <div class="row">
-  <div class="col-md-4">
+<div class="col-md-3">
+      <section class="main-header">
+    <img src="<%= asset_path "doseisan.jpg" %> ">
+  </section>
     <h2>Twitter風アプリ</h2>
       <p>このサイトはruby on railsの練習に作成されました。</p>
         <p>content一覧ページです</p>
-         <%= link_to "ツイートする", new_tweet_path, class: 'btn btn-default' %>
+        
    </div>
    
-  <div class="col-md-8 " >
+   <div class="col-md-9">
+      
    <p><%= notice %></p>
+    <%= link_to "ツイートする", new_tweet_path, class: 'btn btn-default' %>
     <h1>あなたのツイート</h1>
       <% @tweets.each do |tweet| %>
        <div class="row">
         
          <p><%= tweet.content %></p>
-          <%= link_to "編集", edit_tweet_path(tweet.id), class: 'btn btn-default btn-sm btn-success' %>
-          <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
-       </div>
+         
+         <%= link_to "編集", edit_tweet_path(tweet.id), class: "btn btn-primary btn-sm " %>
+         
+        <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-success btn-sm ' %>  
+
          <% end %>
   </div>
 </div>
-
+ </div>
 
 </div>
     
