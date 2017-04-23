@@ -19,6 +19,7 @@
     <h1>あなたの投稿</h1>
       <% @blogs.each do |blog| %>
        <div class="row">
+          <%= blog.user.name %>
         <p><%= blog.title %></p>
          <p><%= blog.content %></p>
          
