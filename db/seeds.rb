@@ -13,3 +13,13 @@
                password_confirmation: password,
                )
 end
+
+n = 1
+while n <= 100
+Blog.create(
+title: "あああ",
+content: "いいい",
+user_id: n
+)
+n = n + 1
+end
