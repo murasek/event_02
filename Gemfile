@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.20.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -37,7 +37,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'better_errors'
- 
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -62,3 +62,11 @@ gem 'rails_12factor', group: :production
  gem 'cancan'
  
  gem 'activeresource'
+ 
+ gem 'omniauth'
+ gem 'omniauth-twitter'
+ gem 'omniauth-facebook'
+ gem 'carrierwave'
+ gem 'mini_magick'
+ 
+ 

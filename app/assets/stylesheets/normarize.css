@@ -203,6 +203,9 @@ img {
   border-style: none;
 }
 
+img{
+  max-width: 100%;
+}
 /**
  * Hide the overflow in IE.
  */
