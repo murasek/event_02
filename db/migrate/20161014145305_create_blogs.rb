@@ -6,6 +6,7 @@ class CreateBlogs < ActiveRecord::Migration
       t.text :content
 
       t.timestamps null: false
+      
     end
   end
 end
