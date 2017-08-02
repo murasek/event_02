@@ -20,8 +20,8 @@
       <% @blogs.each do |blog| %>
         <div class="row">
      
-        <p>  <img src=" <%= blog.user.avatar %> "><%= blog.user.name %></p>
 
+<p><%= profile_img(blog.user) %><%= blog.user.name %></p>
         <p><%= blog.title %></p>
          <p><%= blog.content %></p>
          <%= profile_img(@user) if @user.present? %>
