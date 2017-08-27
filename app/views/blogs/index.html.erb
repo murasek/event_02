@@ -1,48 +1,20 @@
-
 <div class="container">
-
-<div class="row">
-<div class="col-md-3">
-      <section class="main-header">
-    <img src="<%= asset_path "doseisan.jpg" %> ">
-  </section>
-    <h2>Blog</h2>
-      <p>このサイトはruby on railsの練習に作成されました。</p>
-        <p>blogページです</p>
-        
-   </div>
-   
-   <div class="col-md-9">
-      
-   <p><%= notice %></p>
-    <%= link_to "投稿する", new_blog_path, class: 'btn btn-default' %>
-    <h1>あなたの投稿</h1>
-      <% @blogs.each do |blog| %>
-        <div class="row">
-     
-
-<p><%= profile_img(blog.user) %><%= blog.user.name %></p>
-        <p><%= blog.title %></p>
-         <p><%= blog.content %></p>
-         <%= profile_img(@user) if @user.present? %>
-               
-        
-         
-         <%= link_to "編集", edit_blog_path(blog.id), class: "btn btn-primary btn-sm " %>
-         
-        <%= link_to "削除", blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-success btn-sm ' %>  
-
-         <% end %>
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h1>ブログ一覧</h1>
+    <%= link_to "ブログを作成する", new_blog_path, class: 'btn btn-default' %>
+    <% @blogs.each do |blog| %>
+    <%= blog.user.name %>
+　　<%= profile_img(blog.user) %>
+      <div class="row">
+        # ブログのタイトルにlink_toでリンクを設定します。
+        <%= link_to blog_path(blog) do %>
+          <h4><strong><%= blog.title %></strong></h4>
+        <% end %>
+        <p><%= blog.content %></p>
+        <%= link_to "編集", edit_blog_path(blog.id), class: 'btn btn-default btn-sm btn-success' %>
+        <%= link_to "削除", blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+      </div>
+    <% end %>
   </div>
-</div>
- </div>
-
-</div>
-    
-    <div id="page-top-btn" class="page-top-btn">
-    <p><a class="move-page-top" id="move-page-top">▲</a></p>
-  </div>
-
-</div>
-
 </div>
