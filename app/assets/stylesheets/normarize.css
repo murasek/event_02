@@ -204,11 +204,19 @@ img {
 }
 
 img{
-  max-width: 100%;
+  max-width: 35%;
 }
 /**
  * Hide the overflow in IE.
  */
+
+　img-responsive {
+  display: block;
+  height: auto;
+  max-width: 35%;
+}
+
+
 
 svg:not(:root) {
   overflow: hidden;
@@ -420,3 +428,4 @@ textarea {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
+

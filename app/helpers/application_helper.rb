@@ -12,5 +12,7 @@ def profile_img(user)
     image_tag(img_url, alt: user.name)
 end    
 
+
+
 end
 
