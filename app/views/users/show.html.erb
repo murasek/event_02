@@ -4,14 +4,17 @@
 
 
  <div class="container">
+  <div class="row"> 
  <br> </br>
  　
-   <div class="img-responsive">
    
- 　<%= profile_img(@user) %>
-  
-  </div>
+  <div> 
+ 　<%= profile_img(@user )%>
  
+  </div>
+  
+ 
+ <div class="row">
  <br> </br> <h4><%= @user.name %>がフォロー中</h4>
   <div class="image_size">
  　
@@ -19,6 +22,7 @@
     <!--users全体を確認-->
     
     <% @user.followed_users.each do |user| %>
+    <div class="col-md-2 col-sm-4 col-xs-6 ">
       
         <div class="image_size">
          <%= profile_img(user) %>
@@ -26,23 +30,29 @@
         <br>
         <%= user.name %>
         </br>
-
+　　　</div>
      <% end %>
-    
+</div>
+ 
  <br> </br>
-  <h4><%= @user.name %>のフォローワー一覧</h4>
-  </div>
+ <div class="row">
+  　<h4><%= @user.name %>のフォローワー一覧</h4>
+ 
     <% @user.followers.each do |user| %>
+     <div class="col-md-2 col-sm-4 col-xs-6 ">
       
           <div class="image_size">
            <%= profile_img(user) %>
           </div>
         <br></br>
         <%= user.name %>
-       
+     </div>  
     <% end %>
-
   </div>
+ <br>   
+  <%= link_to '戻る', :back %>
+  </br> 
+ 
 
 
 
