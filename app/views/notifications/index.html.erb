@@ -6,9 +6,9 @@
       <span><%= notification.read %></span>
       <p>
         <%= notification.comment.user.try(:name) %>さんが
-        あなたのブログ（<%= link_to "#{notification.comment.blog.title}", blog_path(notification.comment.blog, notification_id: notification.id) %>）にコメントしました。
+        あなたのブログ（<%= notification.comment.blog.title %>）にコメントしました。
       </p>
-      <p><%= notification.created_at %></p>
+      <p><%= posted_time(notification.created_at) %></p>
     </li>
   <% end %>
 </ul>
