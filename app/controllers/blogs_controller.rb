@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
  before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    
+
     @blogs = Blog.all
    respond_to do |format|
     format.html
@@ -33,7 +33,7 @@ class BlogsController < ApplicationController
     if @blog.save
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
       redirect_to blogs_path, notice: "ブログを作成しました！"
-      NoticeMailer.sendmail_blog(@blog).deliver
+    #一時的にコメントアウト  NoticeMailer.sendmail_blog(@blog).deliver
     else
       # 入力フォームを再描画します。
       render 'new'
