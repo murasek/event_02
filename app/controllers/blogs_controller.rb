@@ -45,6 +45,8 @@ class BlogsController < ApplicationController
 
       if blog.user_id != current_user.id
       redirect_to blogs_path, notice: "権限がないため編集できません"
+     else
+       
      end
      end
 
