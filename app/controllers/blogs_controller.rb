@@ -40,12 +40,13 @@ class BlogsController < ApplicationController
     end
  end
 
-  def edit
+
     if @blog.user_id == current_user.id
-    render 'edit'
+     def edit
+     end
     else
     render 'index'
-  end
+
 
   def update
 
