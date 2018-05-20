@@ -62,11 +62,10 @@ class BlogsController < ApplicationController
   end
 
   def destroy
-    if @blog.user_id != current_user.id
-    redirect_to blogs_path, notice: "権限がないため編集できません"
-   else
+    if @blog.user_id == current_user.id
      @blog.destroy
      redirect_to blogs_path, notice: "ブログを削除しました！"
+    else redirect_to blogs_path, notice: "権限がないため編集できません"
     end
 
   end
