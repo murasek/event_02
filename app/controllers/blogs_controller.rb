@@ -41,11 +41,11 @@ class BlogsController < ApplicationController
  end
 
 
-    if @blog.user_id == current_user.id
      def edit
+      if @blog.user_id != current_user.id
+        redirect_to blogs_path, notice: "権限がないため編集できません"
      end
-    else
-    render 'index'
+
 
 
   def update
