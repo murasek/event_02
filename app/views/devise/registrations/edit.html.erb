@@ -54,7 +54,7 @@
  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
  <%= link_to "Back", :back %>
-</div>
+
 
  <% if @user.provider.blank? %>
 
@@ -78,4 +78,6 @@
     <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
   </div>
 
+</div>
+</div>
 <% end %>
