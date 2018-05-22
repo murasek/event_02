@@ -3,4 +3,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     hash[:uid] = User.create_unique_string
     super
   end
+  def new
+  end
 end
