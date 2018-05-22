@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
- 
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'notifications/index'
 
   get 'relationships/create'
 
   get 'relationships/destroy'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
  resources :relationships, only: [:create, :destroy]
 #   devise_for :users
   # resources :blogs, only: [:index, :new, :create,:edit,:update,:destroy] do
@@ -22,22 +23,22 @@ Rails.application.routes.draw do
       post :confirm
     end
     end
-    
+
     resources :poems, only: [:index, :show]
-    
+
     resources :conversations do
     resources :messages
     end
-    
-    
+
+
     root 'top#index'
-    
-    
+
+
     if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
     end
-  
-  
+
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
