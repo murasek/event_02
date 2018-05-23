@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  
+
   protect_from_forgery with: :exception
 
   # before_actionで下で定義したメソッドを実行
@@ -17,15 +17,9 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: PERMISSIBLE_ATTRIBUTES)
       devise_parameter_sanitizer.permit(:account_update, keys: PERMISSIBLE_ATTRIBUTES)
     end
-     
-# before_action :current_notifications, if: :signed_in? 
+
+　　before_action :current_notifications, if: :signed_in? 
     def current_notifications
   　@notifications_count = Notification.where(user_id: current_user.id).where(read:false).count
     end
 end
-
-
-
-
-
-
