@@ -6,12 +6,15 @@ class NoticeMailer < ApplicationMailer
   #   en.notice_mailer.sendmail_blog.subject
   #
   def sendmail_blog(blog)
-    @blog = blog
 
-    mail to: "k01_mura@yahoo.co.jp",
-       subject: '【Achieve】ブログが投稿されました'
+
+    @blog = blog
+  /ブログ書いた人にメールする/
+    mail to: @blog.user.email,
+         subject: '【Achieve】ブログが投稿されました'
+
   end
-  
+
    def sendmail_contact(contact)
     @contact = contact
 
@@ -19,4 +22,3 @@ class NoticeMailer < ApplicationMailer
        subject: '【Achieve】問い合わせが投稿されました'
    end
 end
-
