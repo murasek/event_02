@@ -39,7 +39,6 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'better_errors'
-  gem 'dotenv-rails'
   gem 'capistrano', '3.6.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
@@ -55,9 +54,9 @@ group :development do
   gem 'spring'
   gem 'letter_opener_web'
 end
-  
+
   gem 'twitter-bootstrap-rails'
-  
+
   gem 'jquery-turbolinks'
 
 gem 'rails_12factor', group: :production
@@ -67,9 +66,9 @@ gem 'rails_12factor', group: :production
  gem 'rails_admin'
 
  gem 'cancan'
- 
+
  gem 'activeresource'
- 
+
  gem 'omniauth'
  gem 'omniauth-twitter'
  gem 'omniauth-facebook'
@@ -79,4 +78,3 @@ gem 'rails_12factor', group: :production
  gem 'fog'
  gem 'dotenv-rails'
  gem 'unicorn'
- 
