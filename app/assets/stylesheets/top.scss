@@ -65,11 +65,9 @@
 
 
 .main-header {
-  padding-bottom: 40%;
+  padding-bottom: 0%;
   width: 100%;
-  background-size: cover;
-  background-image: url("header.jpg");
-  background-attachment: fixed;
+
 }
 
 // .main-header img {
@@ -80,7 +78,10 @@
 // }
 
 .about {
-  background-color: white;
+  background-size: cover;
+  background-image: url("header.jpg");
+  background-attachment: fixed;
+  // background-color: white;
   color: #333;
   padding: 80px;
 }
