@@ -15,7 +15,7 @@ CarrierWave.configure do |config|
       config.fog_directory = 'murasek-production'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/murasek-production'
     when 'development'
-      config.fog_directory = 'murasek-development'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/murasek-development'
+      config.fog_directory = 'murasek-develpment'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/murasek-develpment'
   end
 end
