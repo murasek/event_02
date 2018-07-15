@@ -11,7 +11,7 @@ end
 
   n = 1
   while n <= 100
-  Blog.create!(
+  topic.create!(
     title: "あああ",
     content: "あああ",
     user_id: n

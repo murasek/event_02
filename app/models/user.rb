@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-   has_many :blogs, dependent: :destroy
+   has_many :topics, dependent: :destroy
   # CommentモデルのAssociationを設定
   has_many :comments, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

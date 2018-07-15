@@ -16,23 +16,15 @@ ActiveRecord::Schema.define(version: 20170925122440) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blogs", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "blog_id"
+    t.integer  "topic_id"
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["blog_id"], name: "index_comments_on_blog_id", using: :btree
+  add_index "comments", ["topic_id"], name: "index_comments_on_topic_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
@@ -84,6 +76,15 @@ ActiveRecord::Schema.define(version: 20170925122440) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
+  create_table "topics", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at", null: false
@@ -120,7 +121,7 @@ ActiveRecord::Schema.define(version: 20170925122440) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
-  add_foreign_key "comments", "blogs"
+  add_foreign_key "comments", "topics"
   add_foreign_key "comments", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"

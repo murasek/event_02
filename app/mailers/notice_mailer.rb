@@ -3,14 +3,14 @@ class NoticeMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
-  #   en.notice_mailer.sendmail_blog.subject
+  #   en.notice_mailer.sendmail_topic.subject
   #
-  def sendmail_blog(blog)
+  def sendmail_topic(topic)
 
 
-    @blog = blog
+    @topic = topic
   /ブログ書いた人にメールする/
-    mail to: @blog.user.email,
+    mail to: @topic.user.email,
          subject: '【Achieve】ブログが投稿されました'
 
   end

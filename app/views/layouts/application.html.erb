@@ -38,13 +38,14 @@
     </div>
     <div class="collapse navbar-collapse" id="top-nav">
     <ul class="nav navbar-nav">
-      <li class="dropdown-header"><%= link_to "Achieve", root_path %></li>
-      <li class="dropdown-header"><%= link_to "トップページ", root_path %></li>
-      <li class="dropdown-header"><%= link_to "お問い合わせ", new_contact_path %></li>
-      <li class="dropdown-header"><%= link_to "ブログ", blogs_path %></li>
+      <!-- <li class="dropdown-header"><%= link_to "Achieve", root_path %></li> -->
+      <!-- <li class="dropdown-header"><%= link_to "トップページ", root_path %></li> -->
+
+      <li class="dropdown-header"><%= link_to "トピック", topics_path %></li>
       <li class="dropdown-header"><%= link_to 'マイページ', edit_user_registration_path %></li>
       <li class="dropdown-header"><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
       <li class="dropdown-header"><%= link_to "メッセージ", conversations_path %></li>
+      <li class="dropdown-header"><%= link_to "お問い合わせ", new_contact_path %></li>
       <% if user_signed_in? %>
       <%= link_to notifications_index_path, class:"navbar-brand" do %>
        <i class="fa fa-bell fa-1x"><span id="unread_count"><%=@notifications_count %></span></i>
@@ -66,10 +67,9 @@
 <%= yield %>
 
   <footer>
-    <p>運営会社DIVE INTO CODE株式会社</p>
-    <p>© 2015-2016 Copyright DIVE INTO CODE Corp.</p>
+    <p>運営会社Fakebook株式会社</p>
+    <p>© 2015-2018 Copyright Fakebook Corp.</p>
   </footer>
 
 </body>
 </html>
-
