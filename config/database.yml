@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: fakebook
-  username: Fakebook
-  password: <%= ENV['FAKEBOOK_PASSWORD'] %>
+  database: achieve_production
+  username: Achieve
+  password: <%= ENV['ACHIEVE_DATABASE_PASSWORD'] %>
