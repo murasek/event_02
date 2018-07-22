@@ -1,20 +1,28 @@
-10.times do |n|
+n = 15
+
+while n <= 20
+  name = Faker::Pokemon.name
   email = Faker::Internet.email
-  name = Faker::Name.name
-  password = "password"
-  User.create!(email: email,
-               name: name,
-               password: password,
-               password_confirmation: password,
-               )
+  password = Faker::Internet.password
+  uid = SecureRandom.uuid
+
+  User.create(
+    id: n,
+    name: name,
+    email: email,
+    password: password,
+    uid: uid
+  )
+  n = n + 1
 end
 
-  n = 15
-  while n <= 20
-  Topic.create!(
-    title: "あああ",
-    content: "あああ",
+
+
+n = 15
+while n <= 20
+  Topic.create(
+    title: "test",
     user_id: n
-    )
-    n = n + 1
-  end
+  )
+  n = n + 1
+end
