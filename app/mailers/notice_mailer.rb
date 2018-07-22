@@ -11,7 +11,7 @@ class NoticeMailer < ApplicationMailer
     @topic = topic
   /ブログ書いた人にメールする/
     mail to: @topic.user.email,
-         subject: '【Achieve】ブログが投稿されました'
+         subject: '【Fakebook】トピックが投稿されました'
 
   end
 
@@ -19,6 +19,6 @@ class NoticeMailer < ApplicationMailer
     @contact = contact
 
     mail to: contact.email,
-       subject: '【Achieve】問い合わせが投稿されました'
+       subject: '【FakebookFakebook】問い合わせが投稿されました'
    end
 end
