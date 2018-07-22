@@ -1,4 +1,4 @@
-100.times do |n|
+10.times do |n|
   email = Faker::Internet.email
   name = Faker::Name.name
   password = "password"
@@ -9,9 +9,9 @@
                )
 end
 
-  n = 1
-  while n <= 100
-  topic.create!(
+  n = 11
+  while n <= 20
+  Topic.create!(
     title: "あああ",
     content: "あああ",
     user_id: n
