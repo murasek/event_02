@@ -79,7 +79,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-config.action_mailer.default_url_options = { host: '52.194.63.107' }
+config.action_mailer.default_url_options = { host: 'https://dashboard.heroku.com/apps/protected-inlet-72799' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
