@@ -9,7 +9,7 @@
                )
 end
 
-  n = 11
+  n = 15
   while n <= 20
   Topic.create!(
     title: "あああ",
