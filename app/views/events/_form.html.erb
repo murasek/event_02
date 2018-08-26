@@ -1,10 +1,10 @@
-<%= form_for(@topic, url:choose_new_or_edit) do |f| %>
-<% if @topic.errors.any? %>
+<%= form_for(@event, url:choose_new_or_edit) do |f| %>
+<% if @event.errors.any? %>
   <div id="error_explanation">
-    <h2><%= @topic.errors.count %>件のエラーがあります。</h2>
+    <h2><%= @event.errors.count %>件のエラーがあります。</h2>
 
     <ul>
-    <% @topic.errors.full_messages.each do |msg| %>
+    <% @event.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -20,7 +20,7 @@
 <%= f.label :内容 %>
 <%= f.text_field :content, class: 'form-control' %>
 <%= f.label :画像 %><br />
-<%= image_tag(@topic.image) if @topic.image.present? %>
+<%= image_tag(@event.image) if @event.image.present? %>
 <%= f.file_field :image %>
 <br>
 <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>

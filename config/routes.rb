@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
  resources :relationships, only: [:create, :destroy]
 #   devise_for :users
-  # resources :topics, only: [:index, :new, :create,:edit,:update,:destroy] do
+  # resources :events, only: [:index, :new, :create,:edit,:update,:destroy] do
     # collection do
-    resources :topics do
+    resources :events do
      resources :comments
       post :confirm, on: :collection
 
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
 
     root 'top#index'
-    
+
 
 
     if Rails.env.development?

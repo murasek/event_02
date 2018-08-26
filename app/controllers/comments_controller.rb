@@ -1,19 +1,20 @@
 class CommentsController < ApplicationController
 def create
     @comment = current_user.comments.build(comment_params)
-    @topic = @comment.topic
-    @notification = @comment.notifications.build(user_id: @topic.user.id )
+    @event = @comment.event
+    @notification = @comment.notifications.build(user_id: @event.user.id )
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to topic_path(@topic), notice: 'コメントを投稿しました' }
+        format.html { redirect_to event_path(@event), notice: 'コメントを投稿しました' }
         format.js { render :index }
-        unless @comment.topic.user_id == current_user.id
-          Pusher.trigger("user_#{@comment.topic.user_id}_channel", 'comment_created', {
+        unless @comment.event.user_id == current_user.id
+          Pusher.trigger("user_#{@comment.event.user_id}_channel", 'comment_created', {
             message: 'あなたの作成したブログにコメントが付きました'
           })
+          
         end
-        Pusher.trigger("user_#{@comment.topic.user_id}_channel", 'notification_created', {
-          unread_counts: Notification.where(user_id: @comment.topic.user.id, read: false).count
+        Pusher.trigger("user_#{@comment.event.user_id}_channel", 'notification_created', {
+          unread_counts: Notification.where(user_id: @comment.event.user.id, read: false).count
         })
       else
         format.html { render :new }
@@ -27,7 +28,7 @@ end
 def update
   @comment = Comment.find(params[:id])
   if @comment.update(comment_params)
-  redirect_to topic_path(@comment.topic), notice:"コメントを編集しました！"
+  redirect_to event_path(@comment.event), notice:"コメントを編集しました！"
     else
       render 'edit' if @comment.invalid?
     end
@@ -42,6 +43,6 @@ end
 
   private
     def comment_params
-      params.require(:comment).permit(:topic_id, :content)
+      params.require(:comment).permit(:event_id, :content)
     end
   end
