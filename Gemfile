@@ -68,7 +68,7 @@ gem 'rails_12factor', group: :production
  gem 'cancan'
 
  gem 'activeresource'
-
+ gem 'turbolinks'
  gem 'omniauth'
  gem 'omniauth-twitter'
  gem 'omniauth-facebook'
