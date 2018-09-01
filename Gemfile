@@ -75,6 +75,6 @@ gem 'rails_12factor', group: :production
  gem 'carrierwave'
  gem 'mini_magick'
  gem 'pusher'
- # gem 'fog'
+gem 'fog'
  gem 'dotenv-rails'
  gem 'unicorn'
