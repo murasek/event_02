@@ -79,7 +79,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
 
-config.action_mailer.default_url_options = { host: 'https://aqueous-atoll-79700.herokuapp.com/' }
+config.action_mailer.default_url_options = { host: 'http://52.69.141.156/' }
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings =
 {
