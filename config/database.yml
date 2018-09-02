@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: murasek_production
+  database: murasek-production
   username: murasek
   password: <%= ENV['MURASEK_DATABASE_PASSWORD'] %>
