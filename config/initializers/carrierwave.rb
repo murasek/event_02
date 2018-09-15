@@ -15,10 +15,10 @@ CarrierWave.configure do |config|
 
   case Rails.env
     when 'production'
-      config.fog_directory = 'murasek-production'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/murasek-production'
+      config.fog_directory = 'event_02'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/event_02'
     when 'development'
-      config.fog_directory = 'murasek-develpment'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/murasek-develpment'
+      # config.fog_directory = 'murasek-develpment'
+      # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/murasek-develpment'
   end
 end
