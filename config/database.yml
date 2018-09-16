@@ -80,7 +80,7 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
- production:
+production:
   <<: *default
   database: event_02_production
   username: event_02
