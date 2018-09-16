@@ -20,7 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  template: template0
+  template: template1
 
 
 development:
@@ -80,8 +80,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# production:
-  # <<: *default
-  # database: event_02
-  # username: event_02
-  # password: <%= ENV['MURASEK_DATABASE_PASSWORD'] %>
+ production:
+  <<: *default
+  database: event_02_production
+  username: event_02
+  password: <%= ENV['MURASEK_DATABASE_PASSWORD'] %>
