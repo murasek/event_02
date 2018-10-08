@@ -8,14 +8,14 @@
     <% @events.each do |event| %>
       <div class="row">
         <%= profile_img(event.user) %>
-        <h4><%= event.user.name %></h4>
+        <h4>企画者<%= event.user.name %></h4>
         <!-- <%= link_to event_path(event) do %> -->
-  <h4><strong><%= event.title %></strong></h4>
-        <p><%= event.content %></p>
+  <h4><strong>イベント名　<%= event.title %></strong></h4>
+        <p>内容　<%= event.content %></p>
          <p>  <%= image_tag(event.image) %></p>
 
-        <p> 参加予定者:<%= event.user.name %>です。</p>
-          <p> 参加人数は <%= event.comments.count %>人です。</p>
+        <!-- <p> 参加予定者:<%= event.user.name %>です。</p> -->
+          <p> 参加人数は <%= event.comments.count+1 %>人です。</p>
         <% end %>
 
 

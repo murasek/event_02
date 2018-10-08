@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     if @event.save
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
-      redirect_to events_path, notice: "トピックを作成しました！"
+      redirect_to events_path, notice: "イベントを作成しました！"
       NoticeMailer.sendmail_event(@event).deliver
     else
       # 入力フォームを再描画します。
@@ -64,7 +64,7 @@ class EventsController < ApplicationController
   def destroy
     if @event.user_id == current_user.id
      @event.destroy
-     redirect_to events_path, notice: "トピックを削除しました！"
+     redirect_to events_path, notice: "イベントを削除しました！"
     else redirect_to events_path, notice: "権限がないため編集できません"
     end
 

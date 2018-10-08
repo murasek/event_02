@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     end
 
 
-    root 'top#index'
+    root 'events#index'
 
 
 

@@ -8,7 +8,7 @@
       <p class="left"><strong>内容</strong></p>
       <p class="left"><%= @event.content %></p>
       <p class="right">
-        <strong>作成時間:</strong>
+        <strong>作成日時:</strong>
         <%= @event.created_at.strftime("%y/%m/%d %p %l:%M") %>
       </p>
     </div>
@@ -18,7 +18,7 @@
     </div>
     <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
   |
-      <%= link_to '編集', edit_event_path(@event) %> 
+      <%= link_to '編集', edit_event_path(@event) %>
     <%= link_to '戻る', events_path %>
   </div>
 </div>
