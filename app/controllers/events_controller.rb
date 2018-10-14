@@ -70,18 +70,21 @@ class EventsController < ApplicationController
 
   end
 
+
+
+
   def confirm
    @event = Event.new(events_params)
     render :new if @event.invalid?
   end
 
-
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
    private
     def events_params
       params.require(:event).permit(:title, :content,:image,:image_cache,:opening_time,:ending_time,)
     end
-    def set_event
-      @event = Event.find(params[:id])
-    end
+
 end
