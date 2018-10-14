@@ -19,6 +19,12 @@
  <%= f.text_field :title, class: 'form-control' %>
 <%= f.label :内容 %>
 <%= f.text_field :content, class: 'form-control' %>
+<%= f.label :開始 %>
+<%= f. datetime_select(:opening_time, events: :use_month_numbers, :minute_step => 10) %><br />
+<%= f.label :終了 %>
+<%= f. datetime_select(:ending_time, events: :use_month_numbers, :minute_step => 10) %><br />
+
+
 <%= f.label :画像 %><br />
 <%= image_tag(@event.image) if @event.image.present? %>
 <%= f.file_field :image %>

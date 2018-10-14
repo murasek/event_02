@@ -5,6 +5,10 @@
       <%= f.hidden_field :title %>
       <p>タイトル:<%= @event.title %></p>
       <%= f.hidden_field :content %>
+        <%= f.hidden_field :opening_time %>
+        <p>開始時間:<%= @event.opening_time %></p>
+　　　  <%= f.hidden_field :ending_time %>
+　　　　<p>終了時間:<%= @event.ending_time %></p>
       <p>画像  <%= image_tag (@event.image.url) if @event.image.url.present? %></p>
         <%= f.hidden_field :image_cache %>
         <%= hidden_field_tag :"cache[image]", @event.image.cache_name %>
@@ -16,7 +20,8 @@
     <%= form_for(@event, url: new_event_path, method: 'get') do |f| %>
       <%= f.hidden_field :title %>
       <%= f.hidden_field :content %>
-
+<%= f.hidden_field_tag :opening_time %>
+<%= f.hidden_field_tag :ending_time %>
     <%= hidden_field_tag :"cache[image]",@event.image.cache_name %>
       <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
     <% end %>

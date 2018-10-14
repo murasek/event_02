@@ -1,12 +1,21 @@
 <div class="container">
-  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+
     <p><%= notice %></p>
     <h1>イベント一覧だよ</h1>
     <%= link_to "イベントを作成する", new_event_path, class: 'btn btn-default' %>
     <p style="padding-top:15px;">
    </p>
     <% @events.each do |event| %>
-      <div class="row">
+<div class= "col-md-4 col-md-offset-0 col-sm-2">
+
+
+      <h4><strong>開始時間　<%= event.opening_time %></strong></h4>
+      <h4><strong>終了時間　<%= event.ending_time %></strong></h4>
+
+</div>
+<div class= "col-md-8 col-md-offset-0 col-sm-10">
+
+
         <%= profile_img(event.user) %>
         <h4>企画者<%= event.user.name %></h4>
         <!-- <%= link_to event_path(event) do %> -->
@@ -28,7 +37,8 @@
       <p style="padding-top:90px;">
      </p>
       </div>
+<% end %>
 
-    <% end %>
-  </div>
+
+
 </div>
