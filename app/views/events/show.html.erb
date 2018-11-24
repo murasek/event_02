@@ -1,24 +1,120 @@
-<p id="notice"><%= notice %></p>
-<div class="child row">
-  <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
-    <div class="event-text">
-      <p>参加の場合はコメントをお願いします</p>
-      <p class="left"><strong>タイトル</strong></p>
-      <p class="left"><%= @event.title %></p>
-      <p class="left"><strong>内容</strong></p>
-      <p class="left"><%= @event.content %></p>
-      <p class="right">
-        <strong>作成日時:</strong>
-        <%= @event.created_at.strftime("%y/%m/%d %p %l:%M") %>
-      </p>
+<div class="page-header">
+  <h1><%= notice %></h1>
+  <h1>
+  イベントタイトル:  <%= @event.title %>
+  </h1>
+  <h1>
+  <%= image_tag(@event.image) %></p>
+　</h1>
+</div>
+<div class="row">
+  <div class="col-md-8">
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        主催者
+      </div>
+      <div class="panel-body">
+
+
+
+            <%= @event.user.name %>
+
+        </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        開催時間
+      </div>
+      <div class="panel-body">
+        <%= @event.opening_time.strftime('%Y年%m月%d日 %H時%M分') %> - <%= @event.ending_time.strftime('%Y年%m月%d日 %H時%M分') %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        会社名
+      </div>
+      <div class="panel-body">
+        <%= @event.user.company_name %>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        部署名
+      </div>
+      <div class="panel-body">
+        <%= @event.user.department %>
+      </div>
     </div>
 
-    <div id="comments_area">
-      <%= render partial: 'comments/index', locals: { comments: @comments, event: @event } %>
+
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        イベント内容
+      </div>
+      <div class="panel-body">
+        <%= @event.content %>
+      </div>
     </div>
-    <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
-  |
-      <%= link_to '編集', edit_event_path(@event) %>
-    <%= link_to '戻る', events_path %>
+  </div>
+  <div class="col-md-4">
+    <%if  @event.user_id == current_user.id -%>
+      <%= link_to 'イベントを編集する', edit_event_path(@event), class: 'btn btn-info btn-lg btn-block' %>
+      <%= link_to 'イベントを削除する', event_path(@event), class: 'btn btn-danger btn-lg btn-block', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    <% end %>
+    <% if @ticket %>
+      <%= link_to '参加をキャンセルする', event_ticket_path(@event, @ticket), method: :delete, class: 'btn btn-warning btn-lg btn-block' %>
+    <% elsif logged_in? %>
+      <button class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#createTicket">
+        参加する
+      </button>
+      <div class="modal fade" id="createTicket" tabindex="-1" role="dialog" aria-labelledby="dialogHeader" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="dialogHeader">参加コメント</h4>
+            </div>
+            <%= form_for(@event.tickets.build, url: event_tickets_path(@event), remote: true) do |f| %>
+              <div class="modal-body">
+                <%= f.text_field :comment, class: 'form-control' %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+                <%= f.button '送信', class: 'btn btn-primary', data: { disable_with: '送信中…' } %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <%= link_to '参加する', new_event_ticket_path(@event), class: "btn btn-primary btn-lg btn-block" %>
+    <% end %>
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        参加者
+      </div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+          <% @tickets.each do |ticket| %>
+            <% if ticket.user %>
+              <li>
+                <%= link_to(url_for_twitter(ticket.user)) do %>
+                  <%= image_tag ticket.user.image_url, width: 20, height: 20 %>
+                  <%= "@#{ticket.user.name}" %>
+                <% end %>
+                <%= ticket.comment %>
+              </li>
+            <% else %>
+              退会したユーザです
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

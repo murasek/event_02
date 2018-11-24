@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   # PERMISSIBLE_ATTRIBUTES = %i(name,company_name,department)
 
 
+
+# helper_method :current_user, :logged_in?
+
+
   PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache company_name department)
   protected
 
@@ -29,5 +33,20 @@ class ApplicationController < ActionController::Base
   def current_notifications
    @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
   end
+
+# private
+# def current_user
+#    return unless session[:user_id]
+#    @current_user ||= User.find(session[:user_id])
+#    end
+# #
+# def logged_in?
+#     !!session[:user_id]
+# end
+
+# def authenticate
+#   return if logged_in?
+#    redirect_to root_path,alert: 'ログインしてください'
+# end
 
 end

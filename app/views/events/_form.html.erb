@@ -1,4 +1,4 @@
-<%= form_for(@event, url:choose_new_or_edit) do |f| %>
+<%= form_for(@event) do |f| %>
 <% if @event.errors.any? %>
   <div id="error_explanation">
     <h2><%= @event.errors.count %>件のエラーがあります。</h2>
@@ -29,5 +29,5 @@
 <%= image_tag(@event.image) if @event.image.present? %>
 <%= f.file_field :image %>
 <br>
-<%= f.submit '投稿', class: 'btn btn-success btn-block' %>
+<%= f.submit '投稿', class: 'btn btn-success btn-block',data: {disable_with: '作成中……'} %>
 <% end %>

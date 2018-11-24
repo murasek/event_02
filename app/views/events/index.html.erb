@@ -1,46 +1,37 @@
 <div class="container">
-
-    <p><%= notice %></p>
-    <h1>イベント一覧だよ</h1>
+  <div class="row">
+  <h6><%= notice %></h6>
+  <h1>イベント一覧</h1>
     <%= link_to "イベントを作成する", new_event_path, class: 'btn btn-default' %>
-    <p style="padding-top:15px;">
-   </p>
-    <% @events.each do |event| %>
-<div class= "col-md-4 col-md-offset-0 col-sm-2">
+    <p style="padding-top:15px;" </p>
 
 
-      <h4><strong>開始時間　<%= event.opening_time %></strong></h4>
-      <h4><strong>終了時間　<%= event.ending_time %></strong></h4>
+<% @events.each do |event| %>
+<div class= "col-md-3 col-md-offset-0 col-sm-2">
+    <div class="panel panel-default">
+  <p style="padding-top:75px;" </p>
+<h6><strong>開始時間  <%= event.opening_time.strftime('%Y年%m月%d日 %H時%M分') %></strong></h6>
+<h6><strong>終了時間  <%= event.ending_time.strftime('%Y年%m月%d日 %H時%M分') %></strong></h6>
+<p style="padding-top:95px;" </p>
+</div>
 
 </div>
-<div class= "col-md-8 col-md-offset-0 col-sm-10">
 
-
-        <%= profile_img(event.user) %>
-        <h4>企画者<%= event.user.name %></h4>
+<div class= "col-md-9 col-md-offset-0 col-sm-10">
+  <div class="panel panel-default">
+<h4><strong>イベント名　<%= event.title %></strong></h4>
+ <%= profile_img(event.user) %>
+        <h5>企画者<%= event.user.name %></h5>
         <h5>会社名<%= event.user.company_name %></h5>
-        <h5>部署名<%= event.user.department %></h5>
-        <!-- <%= link_to event_path(event) do %> -->
-  <h4><strong>イベント名　<%= event.title %></strong></h4>
-        <p>内容　<%= event.content %></p>
-         <p>  <%= image_tag(event.image) %></p>
-
-        <!-- <p> 参加予定者:<%= event.user.name %>です。</p> -->
-          <p> 参加人数は <%= event.comments.count+1 %>人です。</p>
-        <% end %>
 
 
-  <%= link_to "参加登録（登録後の削除の場合もこちら）", event_path(event.id), class: 'btn btn-default btn-sm btn-success' %>
 
-<%if  event.user_id == current_user.id -%>
-        <%= link_to "編集", edit_event_path(event.id), class: 'btn btn-default btn-sm btn-success' %>
-        <%= link_to "削除", event_path(event.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
-         <%  end %>
-      <p style="padding-top:90px;">
-     </p>
-      </div>
+  <p> 参加人数は <%= event.tickets.count %>人です。</p>
+
+<%= link_to "イベント詳細へ", event_path(event), class: 'btn btn-default' %>
+<p style="padding-top:15px;" </p>
+    </div>
+</div>
 <% end %>
-
-
-
+</div>
 </div>

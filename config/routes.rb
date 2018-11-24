@@ -17,8 +17,11 @@ Rails.application.routes.draw do
 #   devise_for :users
   # resources :events, only: [:index, :new, :create,:edit,:update,:destroy] do
     # collection do
+    root 'events#index'
+
     resources :events do
-     resources :comments
+     # resources :comments
+     resources :tickets
       post :confirm, on: :collection
 
   end
@@ -35,7 +38,6 @@ Rails.application.routes.draw do
     end
 
 
-    root 'events#index'
 
 
 

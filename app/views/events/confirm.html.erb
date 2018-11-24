@@ -16,6 +16,7 @@
 
       <p>本文:<%= @event.content %></p>
       <%= f.submit "登録",class: 'btn btn-success btn-block' %>
+        <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
     <% end %>
     <%= form_for(@event, url: new_event_path, method: 'get') do |f| %>
       <%= f.hidden_field :title %>

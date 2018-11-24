@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181014102809) do
+ActiveRecord::Schema.define(version: 20181105112706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20181014102809) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer  "owner_id"
     t.string   "title"
     t.text     "content"
     t.string   "image"
@@ -58,6 +59,8 @@ ActiveRecord::Schema.define(version: 20181014102809) do
     t.datetime "opening_time"
     t.datetime "ending_time"
   end
+
+  add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"
@@ -92,6 +95,14 @@ ActiveRecord::Schema.define(version: 20181014102809) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id",   null: false
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.text     "content"

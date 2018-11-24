@@ -2,6 +2,7 @@
 <html>
   <head>
   <script src = "https://js.pusher.com/4.1/pusher.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <title>Event</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -46,11 +47,11 @@
       <!-- <li class="dropdown-header"><%= link_to "Achieve", root_path %></li> -->
       <!-- <li class="dropdown-header"><%= link_to "トップページ", root_path %></li> -->
 
-      <li class="dropdown-header"><%= link_to "イベント", events_path %></li>
+      <li class="dropdown-header"><%= link_to "イベント一覧", root_path %></li>
       <li class="dropdown-header"><%= link_to 'マイページ', edit_user_registration_path %></li>
       <li class="dropdown-header"><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
       <li class="dropdown-header"><%= link_to "メッセージ", conversations_path %></li>
-      <li class="dropdown-header"><%= link_to "お問い合わせ", new_contact_path %></li>
+      <!-- <li class="dropdown-header"><%= link_to "お問い合わせ", new_contact_path %></li> -->
       <% if user_signed_in? %>
       <%= link_to notifications_index_path, class:"navbar-brand" do %>
        <i class="fa fa-bell fa-1x"><span id="unread_count"><%=@notifications_count %></span></i>
@@ -71,10 +72,10 @@
 
 <%= yield %>
 
-  <footer>
+  <!-- <footer>
     <p>運営会社Eventbook株式会社</p>
     <p>© 2015-2018 Copyright Eventbook Corp.</p>
-  </footer>
+  </footer> -->
 
 </body>
 </html>
