@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
 validates :title, presence: true
 validates :content, presence: true
 validates :opening_time, presence: true
+validates :ending_time, presence: true
 belongs_to :user
 belongs_to :owner,class_name:'User'
 def created_by?(user)
