@@ -1,4 +1,4 @@
-class JoinsController < ApplicationController  before_action :authenticate
+class JoinsController < ApplicationController  
 
   # before_action :authenticate
   #
