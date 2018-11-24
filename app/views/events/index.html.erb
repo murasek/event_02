@@ -20,7 +20,8 @@
 <div class= "col-md-9 col-md-offset-0 col-sm-10">
   <div class="panel panel-default">
 <h4><strong>イベント名　<%= event.title %></strong></h4>
- <%= profile_img(event.user) %>
+ <%= profile_img(event.user)if event.user.present?%> 
+
         <h5>企画者<%= event.user.name %></h5>
         <h5>会社名<%= event.user.company_name %></h5>
 
