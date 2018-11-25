@@ -3,7 +3,8 @@ class NoticeMailer < ApplicationMailer
   def sendmail_event(event)
    @event = event
    mail to:'k01_mura@yahoo.co.jp'
-  
+   mail to: event.user.email,
+    subject:'【event】イベントが投稿されました'
   end
 
    def sendmail_contact(contact)
