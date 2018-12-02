@@ -4,14 +4,18 @@
 
 <div class="container">
 
-  <h2>ユーザー</h2>
+  <h2>ユーザー一覧</h2>
 
-  <% @users.each do |user| %>
-     <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
+    <% @users.each do |user| %>
+     <div class="container-child col-md-4 col-sm-5 col-xs-7 ">
+
+
+       <div class="userpanel panel-default">
+         <p style="padding-top:25px;" </p>
        <%= profile_img(user) %>
-        <br>  <%= user.name %></br>
-        <br>  <%= user.company_name %></br>
-        <br>  <%= user.department %></br>
+        <br> 名前 <%= user.name %></br>
+        <br> 会社名 <%= user.company_name %></br>
+        <br>  部署<%= user.department %></br>
 
            <%if  user.id != current_user.id -%>
           <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
@@ -23,6 +27,8 @@
 
 
          <%= render partial: 'follow_form', locals: { user: user } if signed_in? %>
+         <p style="padding-top:15px;" </p>
+         </div>
       </div>
   <% end %>
 </div>

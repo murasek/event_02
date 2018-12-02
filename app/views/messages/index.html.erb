@@ -7,8 +7,8 @@
     <% if message.body %>
       <% user = User.find(message.user_id) %>
       <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= user.name %></strong> <%= message.message_time %></div>
+        <div class="header"><%= user.name %> <%= message.message_time %></div>
+          <div class="content">
           <div class="list">
             <div class="item">
               <i class="right triangle icon"></i>

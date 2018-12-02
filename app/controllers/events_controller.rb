@@ -18,7 +18,7 @@ class EventsController < ApplicationController
 
   end
   def index
-   @events = Event.all
+   @events = Event.all.order(opening_time: "DESC")
    respond_to do |format|
     format.html
     format.js
