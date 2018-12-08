@@ -5,54 +5,70 @@
 
  <div class="container">
   <div class="row">
- <br> </br>
+
  　
 
-  <div>
+
+    <div style="display:table; width:40%; margin:5px auto;">
+
+    <div class="panel panel-default">
+
+        <p style="padding-top:15px;" </p>
+  <div class="image_size">
  　<%= profile_img(@user )%>
+</div>
+
+ <br> 名前 <%= @user.name %></br>
+ <br> 会社名 <%= @user.company_name %></br>
+ <br>  部署<%= @user.department %></br>
 
   </div>
+</div>
+</div>
+
+</div>
+</div>
 
 
  <div class="row">
- <br> </br> <h4><%= @user.name %>がフォロー中</h4>
-  <div class="image_size">
- 　
-
-    <!--users全体を確認-->
+   <h4><%= @user.name %>がフォロー中</h4> 　
+<div class="container">
 
     <% @user.followed_users.each do |user| %>
-    <div class="col-md-2 col-sm-4 col-xs-6 ">
-　　　　　 <div class="panel panel-default">
+<div style="display:table; width:50%; margin:5px auto;">
+   <div class="container-child col-md-4 col-sm-5 col-xs-7 ">
+　　　　　 <div class="userpanel panel-default">
         <div class="image_size">
           <p style="padding-top:15px;" </p>
          <%= profile_img(user) %>
         </div>
         <br>
-        <%= user.name %>
+        名前<%= user.name %>
         </br>
         <br>
-        <%= user.company_name %>
+        会社名<%= user.company_name %>
         </br>
 
         <br>
-        <%= user.department %>
+        部署<%= user.department %>
         </br>
 　　　　　<p style="padding-top:15px;" </p>
-
-　　　</div>
+</div>
+</div>
+</div>
 </div>
      <% end %>
 </div>
 
- <br> </br>
- <div class="row">
+<div class="container">
+<div class="row">
+     <br>
   　<h4><%= @user.name %>のフォロワー一覧</h4>
+</br>
 
     <% @user.followers.each do |user| %>
-     <div class="col-md-2 col-sm-4 col-xs-6 ">
-       <div style="display:table; width:80%; margin:5px auto;">
-       <div style="display:table-cell; width:100%; background-color:#fcc;">
+<div style="display:table; width:50%; margin:5px auto;">
+     <div class="container-child col-md-4 col-sm-5 col-xs-7 ">
            <div class="panel panel-default">
 
           <div class="image_size">
@@ -60,15 +76,28 @@
            <%= profile_img(user) %>
           </div>
         <br> 名前<%= user.name %></br>
-      <br> 会社名   <%= user.company_name %>  </br>
+      <br> 会社名  <%= user.company_name %>  </br>
 
-    <br> 部署名<%= user.department %></br>
+    <br> 部署<%= user.department %></br>
 　　　  <p style="padding-top:15px;" </p>
   </div>
-</div>
+
+
     </div>
-      <% end %>
+      </div>
+        </div>
+</div>
+    <% end %>
+<div class="row">
+    <div style="display:table; width:70%; margin:5px auto;">
+  <p style="padding-top:45px;" </p>
+   <div class="panel panel-default">
+
+ <%if  @user.id == current_user.id -%>
+<br>
+<%= link_to 'マイページ編集', edit_user_registration_path , class: 'btn btn-default btn-sm btn-success' %>
+</br>
+  <% end %>
+<%= link_to '戻る', :back %>
   </div>
- <br>
-  <%= link_to '戻る', :back %>
-  </br>
+</div>

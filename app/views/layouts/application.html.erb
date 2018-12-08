@@ -48,7 +48,9 @@
       <!-- <li class="dropdown-header"><%= link_to "トップページ", root_path %></li> -->
 
       <li class="dropdown-header"><%= link_to "イベント一覧", root_path %></li>
-      <li class="dropdown-header"><%= link_to 'マイページ', edit_user_registration_path %></li>
+      <!-- <li class="dropdown-header"><%= link_to 'マイページ編集', edit_user_registration_path %></li> -->
+
+
       <li class="dropdown-header"><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
       <li class="dropdown-header"><%= link_to "メッセージ", conversations_path %></li>
       <li class="dropdown-header"><%= link_to "お問い合わせ", new_contact_path %></li>

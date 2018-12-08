@@ -10,17 +10,21 @@
 
   <% if @contact.errors.any? %>
     <div id="error_explanation">
-      
-      <h2><%= @contact.errors.count %>件のエラーがあります。</h2>
 
+      <h2><%= @contact.errors.count %>件のエラーがあります。</h2>
+<div class="error_field alert alert-danger" role="alert">
       <ul>
-      
+
       <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <h5><%= msg %></h5>
       <% end %>
       </ul>
     </div>
   <% end %>
+
+
+
+  
 
 
 
@@ -34,8 +38,8 @@
   <%= f.label :content %>
   <%= f.text_field :content, class: 'form-control' %>
   <br>
-  
-  
+
+
   <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 <% end %>
  </div>
